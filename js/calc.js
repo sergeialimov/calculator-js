@@ -1,7 +1,6 @@
-
 const calc = {
   success: function() {
-  alert('success')
+    alert('success')
   },
 
   addMethod: function(name, funct) {
