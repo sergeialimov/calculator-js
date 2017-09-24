@@ -5,78 +5,43 @@ const calc = {
   action: '',
   sum: '',
 
-  showResult: function(result) {
-    document.getElementsByName('result')[0].value = result;
-  },
-
-  addNumber: function(number) {
-    if (number === 0 && calc.tmp === '0') {
-      return;
+  calc() {
+    utils.parseNums();
+    switch (calc.action) {
+      case '-':
+        calc.sum = calc.subtract();
+        break;
+      case '+':
+        calc.sum = calc.add();
+        break;
+      case '*':
+        calc.sum = calc.multiply();
+        break;
+      case '/':
+        calc.sum = calc.divide();
+        break;
     }
-    if (calc.tmp === '0') {
-      calc.tmp = '';
-    }
-    calc.tmp += number;
-    console.log('number:', calc.tmp);
-    calc.showResult(calc.tmp);
-  },
-
-  addAction: function(action) {
-    if (!calc.firstNum) {
-      calc.firstNum = calc.tmp;
-      calc.tmp = '';
-      calc.action = action;
-    } else {
-      calc.secondNum = calc.tmp;
-      calc.parseNums;
-      switch (action) {
-        case '-':
-          result = calc.substract(firstNum, secondNum);
-          break;
-        case '+':
-          result = calc.add(firstNum, secondNum);
-          break;
-        case '*':
-          result = calc.multiply(firstNum, secondNum);
-          break;
-        case '/':
-          result = calc.divide(firstNum, secondNum);
-          break;
-      }
-    }
-    console.log('func', calc.action);
-    calc.showResult(calc.action);
-  },
-
-  parseNums: function() {
-    firstNum = parseFloat(firstNum);
-    secondNum = parseFloat(secondNum);
-  },
-
-  add: function(a, b) {
-    calc.sum = a + b;
-    console.log('sum', calc.sum);
-    calc.showResult(calc.sum);
-  },
-
-  substract: function(a, b) {
-    calc.sum = a - b;
-    calc.showResult(calc.sum);
-  },
-
-  divide: function(a, b) {
-    calc.sum = a / b;
-    calc.showResult(calc.sum);
-  },
-
-  multiply: function(a, b) {
-    calc.sum = a * b;
-  },
-
-  clear: function() {
-    calc.tmp = '0';
     calc.action = '';
-    console.log('number:', calc.tmp);
-    calc.showResult(0);
+    calc.firstNum = calc.sum;
+    calc.sum = '';
+    calc.secondNum = '';
+    display.showResult(calc.firstNum);
+  },
+
+  add() {
+    return calc.firstNum + calc.secondNum;
+  },
+
+  subtract() {
+    return calc.firstNum - calc.secondNum;
+  },
+
+  divide(a, b) {
+    if (b === 0) display.showError();
+    return calc.firstNum / calc.secondNum;
+  },
+
+  multiply() {
+    return calc.firstNum * calc.secondNum;
   }
 }
