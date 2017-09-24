@@ -1,10 +1,14 @@
 const main = {
   addNumber(number) {
-    if (!number && !calc.tmp) {
-      return;
-    }
+    // if (!number && !calc.tmp) {
+    //   return;
+    // }
     if (calc.tmp === '0' && number !== ',') { // это условие нужно, чтобы обработать стартовый ноль
+      console.log('addNumber' + number);
       calc.tmp = '';
+    }
+    if (!calc.tmp && number === ',') {
+      calc.tmp = '0';
     }
     calc.tmp += number;
     utils.log('addNumber');
@@ -40,7 +44,7 @@ const main = {
     }
     utils.log('finish');
   },
-  
+
   clear() {
     calc.tmp = '0';
     calc.firstNum = '';
