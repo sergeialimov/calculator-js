@@ -1,11 +1,15 @@
 
 const utils = {
-  parseNums: function() {
+  parseNums() {
     calc.firstNum = parseFloat(calc.firstNum);
     calc.secondNum = parseFloat(calc.secondNum);
   },
 
-  log: function(functionName) {
+  invert() {
+    
+  },
+
+  log(functionName) {
     console.log(`${functionName} calc.firstNum:`, calc.firstNum);
     console.log(`${functionName} calc.action:`, calc.action);
     console.log(`${functionName} calc.secondNum:`, calc.secondNum);
@@ -14,7 +18,7 @@ const utils = {
     console.log('--');
   },
 
-  logStep: function(stepName) {
+  logStep(stepName) {
     console.log(stepName);
   }
 }

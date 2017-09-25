@@ -1,8 +1,5 @@
 const main = {
   addNumber(number) {
-    // if (!number && !calc.tmp) {
-    //   return;
-    // }
     if (calc.tmp === '0' && number !== ',') { // это условие нужно, чтобы обработать стартовый ноль
       console.log('addNumber' + number);
       calc.tmp = '';
