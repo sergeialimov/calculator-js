@@ -1,0 +1,40 @@
+.container {
+  width: 300px
+}
+
+.form-control {
+  border-radius: 0px;
+  margin: 0px;
+}
+
+.btn-white {
+  background-color: #b8b3b3;
+  font-size: 1.3em;
+  border-radius: 0px;
+  border: 0px;
+  color: #383838;
+}
+
+.btn-orange {
+  background-color: #ED7724;
+  font-size: 1.3em;
+  border-radius: 0px;
+  border: 0px;
+  color: #EFEFEF;
+}
+
+.col-md-3 {
+  padding: 0.5px;
+}
+
+.col-md-6 {
+  padding: 0.5px;
+}
+
+.col-md-12 {
+  padding: 0.5px;
+}
+
+h3 {
+  text-align: center;
+}
